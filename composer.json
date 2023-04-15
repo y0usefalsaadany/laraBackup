@@ -1,0 +1,18 @@
+{
+    "name": "yousefpackage/lara-backup",
+    "description": "This is a Laravel package for backing up databases",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Yousefpackage\\LaraBackup\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "yousef alsaadany",
+            "email": "yousefalsaadany5@gmail.com"
+        }
+    ],
+    "require": {}
+}

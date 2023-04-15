@@ -1,18 +1,20 @@
 # install package
 
 ```
-composer require Yousefpackage\LaraBackup
+composer require yousefpackage/lara-backup
 ```
 
 # then goto config folder 
 
-in app.php
+in config/app.php
 
 
 ```
 'providers' => [
 
-Yousefpackage\JoeProxy\JoeProxyServiceProvider::class,
+Yousefpackage\LaraBackup\Providers\LaraBackupServiceProvider::class,
+Yousefpackage\LaraBackup\Providers\BackupServiceProvider::class,
+Yousefpackage\LaraBackup\Providers\RouteServiceProvider::class,
 
 ],
 ```
@@ -22,76 +24,45 @@ Yousefpackage\JoeProxy\JoeProxyServiceProvider::class,
 write this in $routeMiddleware
 
 ```
-'jproxy' => \Yousefpackage\JoeProxy\Http\Middleware\LogMiddleware::class,
-```
-
-# then run this command 
-
-```
-php artisan migrate
+'DbAlert'=>\Yousefpackage\LaraBackup\Middleware\DbAlertMiddleware::class,
 ```
 
 # then goto env file and put this
 
 ```
-MAIL_TO = "youremail"
+BACKUP_DB_HOST=127.0.0.1
+BACKUP_DB_PORT=3306
+BACKUP_DB=backup
+BACKUP_DB_USERNAME=root
+BACKUP_DB_PASSWORD=
 ```
 
-# Please check that you have entered the correct information in env file 
-
-APP_NAME<br>
-APP_URL<br>
-MAIL_MAILER<br>
-MAIL_HOST<br>
-MAIL_PORT<br>
-MAIL_USERNAME<br>
-MAIL_PASSWORD<br>
-MAIL_ENCRYPTION<br>
-MAIL_FROM_ADDRESS<br>
-
-# test package 
-
-now for test this package goto your browser and write this visits-package
+# then run this command 
 
 ```
-http://127.0.0.1:8000/joe-proxy
+php artisan migratedb:backup
 ```
+
+
 
 # using
 Now Put this middleware on the route you want to calculate the number of views for.
 
 ```
-->middleware('jproxy');
+->middleware('DbAlert');
 ```
 
 like this 
 
 ```
-Route::get('/', function () {
-    return view('welcome');
-})->middleware('jproxy');
+Route::get('/data', function () {
+    return response()->json('data');
+})->middleware('DbAlert');
 ```
 
-If you want to calculate the number of views you have, make a controller and then put this code
+# get database alerts 
+
+now to get database backup database alerts  using this api 
 
 ```
-<?php
-
-use Yousefpackage\JoeProxy\Models\Log;
-use Yousefpackage\JoeProxy\Models\Alert;
-use Illuminate\Support\Facades\DB;
-
-class ViewsController extends Controller
-{
-    function index(){
-
-        return DB::table('logs')->select('ip')->count(); // To count the number of views 
-
-        return Alert::all(); // If you want to know the warnings about requests
-    }
-}
-
->
-```
-
-And we find in the table that we have the visitor’s IP, his city, the page he visited and the type of his operating system
+http://127.0.0.1:8000/api/dbAlerts

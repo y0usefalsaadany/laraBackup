@@ -14,5 +14,6 @@
             "email": "yousefalsaadany5@gmail.com"
         }
     ],
+    "minimum-stability": "dev",
     "require": {}
 }

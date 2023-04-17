@@ -17,7 +17,6 @@
     "minimum-stability": "stable",
     "require": {
         "php": "^8.0",
-        "laravel/laravel": "^9.0",
-        "yousefpackage/lara-backup": "1.0.0"
+        "laravel/laravel": "^9.0"
     }
 }

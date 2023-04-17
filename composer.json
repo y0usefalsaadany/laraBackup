@@ -13,6 +13,6 @@
             "name": "yousef alsaadany"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {}
 }

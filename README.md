@@ -24,7 +24,7 @@ Yousefpackage\LaraBackup\Providers\RouteServiceProvider::class,
 write this in $routeMiddleware
 
 ```
-'DbAlert'=>\Yousefpackage\LaraBackup\Middleware\DbAlertMiddleware::class,
+'DbBackup'=>\Yousefpackage\LaraBackup\Middleware\DbAlertMiddleware::class,
 ```
 
 # then goto env file and put this
@@ -49,7 +49,7 @@ php artisan migratedb:backup
 Now Put this middleware on the route you want to calculate the number of views for.
 
 ```
-->middleware('DbAlert');
+->middleware('DbBackup');
 ```
 
 like this 

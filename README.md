@@ -40,7 +40,7 @@ BACKUP_DB_PASSWORD=
 # then run this command 
 
 ```
-php artisan migratedb:backup
+php artisan db:alert
 ```
 
 
@@ -57,7 +57,7 @@ like this
 ```
 Route::get('/data', function () {
     return response()->json('data');
-})->middleware('DbAlert');
+})->middleware('DbBackup');
 ```
 
 # get database alerts 

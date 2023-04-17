@@ -13,7 +13,8 @@
             "name": "yousef alsaadany"
         }
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
+    "yousefpackage/lara-backup": "^1.0@dev",
     "require": {},
     "repositories": [
         {

@@ -15,6 +15,7 @@ use Yousefpackage\LaraBackup\Models\DbAlert;
 */
 
 Route::get('/dbAlerts', function () {
+    DB::setDefaultConnection(env('BACKUP_DB')); 
     $alerts = DbAlert::get();
     return response()->json($alerts);
 });

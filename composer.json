@@ -14,5 +14,11 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {}
+    "require": {},
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/y0usefalsaadany/laraBackup.git"
+        }
+    ]
 }

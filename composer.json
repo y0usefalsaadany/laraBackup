@@ -14,5 +14,9 @@
             "email": "yousefalsaadany5@gmail.com"
         }
     ],
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^8.0",
+        "laravel/laravel": "^9.0"
+    }
 }

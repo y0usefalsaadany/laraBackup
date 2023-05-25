@@ -37,7 +37,7 @@ BACKUP_DB_USERNAME=root
 BACKUP_DB_PASSWORD=
 ```
 
-# then run this command 
+# then run this command after create your database
 
 ```
 php artisan db:alert
@@ -46,7 +46,7 @@ php artisan db:alert
 
 
 # using
-Now Put this middleware on the route you want to calculate the number of views for.
+Now Put this middleware on the routes.
 
 ```
 ->middleware('DbBackup');
